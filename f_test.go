@@ -22,6 +22,8 @@ func TestF(t *testing.T) {
 		}, v)
 	}) {
 		t.Error(`trapped in a maze of logic errors`)
+	} else if tek.F(nil) {
+		t.Error(`trapped in a maze of logic errors`)
 	} else if err := error(nil); err != nil {
 		t.Error(`trapped in the post logic error`)
 	} else {
