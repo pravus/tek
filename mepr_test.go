@@ -2,8 +2,8 @@ package tek_test
 
 import (
 	"fmt"
-	"testing"
 	"strings"
+	"testing"
 
 	"github.com/pravus/tek"
 	"github.com/stretchr/testify/require"
