@@ -8,14 +8,14 @@ func FanN[I, O any](f func(int, I) O, n, capI, capO int) (fann struct {
 	o := make([]chan O, n)
 	fann.I = i
 	fann.O = make([]<-chan O, n)
-	for i := 0; i < n; i++ {
+	for e := 0; e < n; e++ {
 		c := make(chan O, capO)
-		fann.O[i], o[i] = c, c
+		fann.O[e], o[e] = c, c
 	}
 	go func() {
 		for x := range i {
-			for i, o := range o {
-				o <- f(i, x)
+			for e, o := range o {
+				o <- f(e, x)
 			}
 		}
 		for _, o := range o {
