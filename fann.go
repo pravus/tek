@@ -5,7 +5,7 @@ func FanN[I, O any](f func(int, I) O, n, capI, capO int) (fann struct {
 	O []<-chan O
 }) {
 	i := make(chan I, capI)
-	o := make([]chan O, n)
+	o := make([]chan<- O, n)
 	fann.I = i
 	fann.O = make([]<-chan O, n)
 	for e := 0; e < n; e++ {

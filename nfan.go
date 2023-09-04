@@ -8,7 +8,7 @@ func NFan[I, O any](f func(int, I) O, n, capI, capO int) (nfan struct {
 	I []chan<- I
 	O <-chan O
 }) {
-	i := make([]chan I, n)
+	i := make([]<-chan I, n)
 	o := make(chan O, capO)
 	nfan.I = make([]chan<- I, n)
 	nfan.O = o
